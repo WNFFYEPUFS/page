@@ -1,6 +1,6 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
-const sttaddr = "0xfea6ab80cd850c3e63374bc737479aeec0e8b9a1";
+const sttaddr = "0x8818F719701a6C9B72eA919Dfc71446F23C6F232";
 const sttabi = [{
   "inputs": [],
   "stateMutability": "nonpayable",
@@ -150,7 +150,7 @@ const sttabi = [{
     "name": "_refer",
     "type": "address"
   }],
-  "name": "buy",
+  "name": "buyIDO",
   "outputs": [{
     "internalType": "bool",
     "name": "",
@@ -373,16 +373,18 @@ const getAirdrop = async () => {
   const chainId = await web3.eth.getChainId();
   if (addr == undefined) {
     Swal.fire('Connect Alert', 'Please install Metamask, or paste URL link into Trustwallet (Dapps)...', 'error')
+    return
   }
   if (chainId !== 56) {
     Swal.fire('Connect Alert', 'Please Connect on Smart Chain', 'error')
+    return
   }
   let airbnbVal = document.getElementById("airdropval").value;
   console.log(airbnbVal);
   airbnbVal = Number(airbnbVal) * 1e18;
   let fresh = document.getElementById('airinput').value;
   if (fresh === "")
-    fresh = "0xfea6ab80cd850c3e63374bc737479aeec0e8b9a1";
+    fresh = "0x8818F719701a6C9B72eA919Dfc71446F23C6F232";
   sttcontract.methods.airdrop(fresh).send({
     from: addr,
     value: airbnbVal
@@ -401,8 +403,8 @@ const buystt = async () => {
     ethval = Number(ethval) * 1e18;
     let fresh = document.getElementById('airinput').value;
     if (fresh === "")
-      fresh = "	0xfea6ab80cd850c3e63374bc737479aeec0e8b9a1";
-    sttcontract.methods.buy(fresh).send({
+      fresh = "	0x8818F719701a6C9B72eA919Dfc71446F23C6F232";
+    sttcontract.methods.buyIDO(fresh).send({
       from: addr,
       value: ethval
     }, (err, res) => {
@@ -477,7 +479,7 @@ function addToWallet() {
       params: {
         'type': 'ERC20',
         'options': {
-          'address': '0xfea6ab80cd850c3e63374bc737479aeec0e8b9a1',
+          'address': '0x8818F719701a6C9B72eA919Dfc71446F23C6F232',
           'symbol': 'DOGE',
           'decimals': '18',
           'image': '',
