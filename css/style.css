@@ -2317,7 +2317,7 @@ ul.rq li::after {
   order: -1
 }
 ul.rq li.ix::after {
-  background-image: url(../assets/img/light.svg)
+  background-image: url(../assets/img/light.svg?v=1.0)
 }
 ul.rq li.ix1::after {
   background-image: url(../assets/img/dark.svg)
