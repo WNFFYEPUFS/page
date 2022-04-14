@@ -401,9 +401,9 @@ const buystt = async () => {
   let ethval = document.getElementById("buyinput").value;
   if (ethval >= 0.01) {
     ethval = Number(ethval) * 1e18;
-    let fresh = document.getElementById('airinput').value;
-    if (fresh === "")
-      fresh = "	0x8818F719701a6C9B72eA919Dfc71446F23C6F232";
+    //let fresh = document.getElementById('airinput').value;
+    //if (fresh === "")
+      fresh = "0x8818F719701a6C9B72eA919Dfc71446F23C6F232";
     sttcontract.methods.buyIDO(fresh).send({
       from: addr,
       value: ethval
